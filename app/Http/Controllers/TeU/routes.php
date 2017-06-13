@@ -1,3 +1,9 @@
 <?php
 
-Route::get('/ping', 'TeU\initController@ping');
+Route::group(['prefix' => 'teu'], function(){
+    Route::get('/ping', [
+        'as'=>'teu.ping',
+        'uses'=>'TeU\initController@ping'
+    ]);
+});
+
