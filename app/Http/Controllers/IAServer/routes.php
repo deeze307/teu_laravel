@@ -39,7 +39,7 @@ Route::post('/profile/search', function() {
 
     if(count($words)==2 && !empty($nombre) && !empty($apellido))
     {
-        $output = \IAServer\Http\Controllers\Auth\Entrust\Profile::where('nombre','like','%'.$nombre.'%')
+        $output = IAServer/Http/Controllers/Auth/Entrust/Profile::where('nombre','like','%'.$nombre.'%')
             ->where('apellido','like','%'.$apellido.'%')
             ->get();
 
