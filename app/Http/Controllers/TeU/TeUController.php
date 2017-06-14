@@ -2,18 +2,24 @@
 
 namespace IAServer\Http\Controllers\TeU;
 
+use IAServer\Http\Controllers\TeU\Model\Consejos;
 use IAServer\Http\Controllers\TeU\Model\Ping;
 use Illuminate\Http\Request;
 
 use IAServer\Http\Requests;
 use IAServer\Http\Controllers\Controller;
 
-class initController extends Controller
+class TeUController extends CRUDTeUController
 {
     //
 
     public function ping()
     {
-        return Ping::all();
+        return $this->getPing();
+    }
+
+    public function tips()
+    {
+        return $this->getTips();
     }
 }
