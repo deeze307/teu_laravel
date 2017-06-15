@@ -1,7 +1,7 @@
 <?php
 
-Route::group(['prefix' => 'teu'], function()
-{
+//Route::group(['prefix' => 'teu'], function()
+//{
     Route::get('/ping', [
         'as'=>'teu.ping',
         'uses'=>'TeU\TeUController@ping'
@@ -14,5 +14,5 @@ Route::group(['prefix' => 'teu'], function()
         'as'=>'teu.enabledjobs',
         'uses'=>'TeU\TeUController@enabledJobs'
     ]);
-});
+//});
 
