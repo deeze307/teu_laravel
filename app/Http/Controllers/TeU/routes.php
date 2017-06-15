@@ -10,5 +10,9 @@ Route::group(['prefix' => 'teu'], function()
         'as'=>'teu.gettips',
         'uses'=>'TeU\TeUController@tips'
     ]);
+    Route::get('/enabledjobs',[
+        'as'=>'teu.enabledjobs',
+        'uses'=>'TeU\TeUController@enabledJobs'
+    ]);
 });
 

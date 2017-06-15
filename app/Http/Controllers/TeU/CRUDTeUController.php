@@ -3,6 +3,7 @@
 namespace IAServer\Http\Controllers\TeU;
 
 use IAServer\Http\Controllers\TeU\Model\Consejos;
+use IAServer\Http\Controllers\TeU\Model\Empleos;
 use IAServer\Http\Controllers\TeU\Model\Ping;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,14 @@ class CRUDTeUController extends Controller
 
     public function getTips()
     {
-        return Consejos::select('consejo_titulo','consejo_desc')->where('visible','t')->get();
+        return Consejos::select('consejo_titulo','consejo_desc')
+                        ->where('visible','t')->get();
+    }
+
+    public function getEnabledJobs()
+    {
+        return Empleos::select('titulo','descripcion','movil','email','id_categoria')
+                        ->where('visible_movil','t')->get();
     }
 
     public function index()
