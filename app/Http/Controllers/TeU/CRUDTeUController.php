@@ -32,7 +32,7 @@ class CRUDTeUController extends Controller
     public function getEnabledJobs()
     {
         return Empleos::select('titulo','descripcion','movil','email','id_categoria','created_at')
-                        ->where('visible_movil','t')->get();
+                        ->where('visible_movil','t')->orderBy('created_at','desc')->get();
     }
 
     public function index()
