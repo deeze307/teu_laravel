@@ -5,6 +5,7 @@ namespace IAServer\Http\Controllers\TeU;
 use IAServer\Http\Controllers\TeU\Model\Consejos;
 use IAServer\Http\Controllers\TeU\Model\Empleos;
 use IAServer\Http\Controllers\TeU\Model\Ping;
+use IAServer\Http\Controllers\TeU\Model\Staff;
 use Illuminate\Http\Request;
 
 use IAServer\Http\Requests;
@@ -33,6 +34,11 @@ class CRUDTeUController extends Controller
     {
         return Empleos::select('titulo','descripcion','movil','email','id_categoria','created_at')
                         ->where('visible_movil','t')->orderBy('created_at','desc')->get();
+    }
+
+    public function getStaff()
+    {
+        return Staff::all();
     }
 
     public function index()

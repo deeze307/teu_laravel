@@ -704,6 +704,7 @@ return array(
     'IAServer\\Http\\Controllers\\TeU\\Model\\Consejos' => $baseDir . '/app/Http/Controllers/TeU/Model/Consejos.php',
     'IAServer\\Http\\Controllers\\TeU\\Model\\Empleos' => $baseDir . '/app/Http/Controllers/TeU/Model/Empleos.php',
     'IAServer\\Http\\Controllers\\TeU\\Model\\Ping' => $baseDir . '/app/Http/Controllers/TeU/Model/Ping.php',
+    'IAServer\\Http\\Controllers\\TeU\\Model\\Staff' => $baseDir . '/app/Http/Controllers/TeU/Model/Staff.php',
     'IAServer\\Http\\Controllers\\TeU\\TeUController' => $baseDir . '/app/Http/Controllers/TeU/TeUController.php',
     'IAServer\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'IAServer\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
