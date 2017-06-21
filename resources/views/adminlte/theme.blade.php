@@ -63,7 +63,7 @@
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Menu de navegacion</span>
+        <span class="sr-only">Menu de Navegacion</span>
       </a>
 
       <!-- Navbar Login Menu -->
