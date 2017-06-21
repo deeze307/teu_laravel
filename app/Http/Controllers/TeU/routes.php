@@ -2,10 +2,6 @@
 
 Route::get('/manage','TeU\TeUController@manage');
 
-Route::get('/ping', [
-    'as'=>'teu.ping',
-    'uses'=>'TeU\TeUController@ping'
-]);
 Route::get('/tips',[
     'as'=>'teu.gettips',
     'uses'=>'TeU\TeUController@tips'
@@ -16,5 +12,5 @@ Route::get('/enabledjobs',[
 ]);
 
 // Staff
-Route::get('/staff/get','TeU\TeUController@getStaff');
+Route::get('/staff','TeU\TeUController@staff');
 
