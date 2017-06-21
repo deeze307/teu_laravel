@@ -12,6 +12,10 @@ use IAServer\Http\Controllers\Controller;
 class TeUController extends CRUDTeUController
 {
     //
+    public function manage()
+    {
+        return view('teu.management.index');
+    }
 
     public function ping()
     {

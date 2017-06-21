@@ -39,12 +39,12 @@
     {!! IAStyle('assets/loader_mini.css') !!}
     <!-- AdminLTE App -->
     {!! IAStyle('adminlte/dist/css/AdminLTE.css') !!}
-    {!! IAStyle('adminlte/dist/css/skins/skin-blue.min.css') !!}
+    {!! IAStyle('adminlte/dist/css/skins/skin-yellow-light.min.css') !!}
     {!! IAScript('adminlte/dist/js/app.min.js') !!}
 
   @yield('head')
 </head>
-<body class="hold-transition skin-blue @yield('mini','sidebar-mini') @yield('collapse','sidebar-collapse')" @hasSection('ng') ng-cloak @endif @yield('bodytag')>
+<body class="hold-transition skin-yellow-light layout-boxed @yield('mini','sidebar-mini') @yield('collapse','sidebar-collapse')" @hasSection('ng') ng-cloak @endif @yield('bodytag')>
 
 <div class="wrapper">
 
@@ -54,9 +54,9 @@
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>F</b>1.0</span>
+      <span class="logo-mini"><b>TeU</b>1.0</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Finanzas</b></span>
+      <span class="logo-lg">TrabajaEn<b>Ushuaia</b></span>
     </a>
 
     <!-- Header Navbar -->

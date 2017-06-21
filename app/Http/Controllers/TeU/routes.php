@@ -2,6 +2,7 @@
 
 //Route::group(['prefix' => 'teu'], function()
 //{
+    Route::get('/manage','TeU\TeUController@manage');
     Route::get('/ping', [
         'as'=>'teu.ping',
         'uses'=>'TeU\TeUController@ping'
