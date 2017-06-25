@@ -39,9 +39,14 @@ class CRUDTeUController extends Controller
 
     public function getStaff()
     {
-        return DB::table('staff')->join('staff_rol','staff.id_rol','=','staff_rol.id')
-                    ->select('staff.nombre','staff.apellido','staff.telefono','staff.email','staff_rol.descripcion','staff.descripcion','staff.avatar')
-                    ->get();
+        $query="select s.apellido,s.nombre,s.telefono,s.email,sr.descripcion as 'desc_rol',s.descripcion,s.avatar
+                from staff s
+                left join staff_rol sr on s.id_rol = sr.id;";
+        return DB::connection('teu')->select($query);
+
+//        return DB::table('staff')->leftjoin('staff_rol','staff.id_rol','=','staff_rol.id')
+//            ->select('staff.nombre','staff.apellido','staff.telefono','staff.email','staff_rol.descripcion','staff.descripcion','staff.avatar')
+//            ->get();
     }
 
     public function index()
