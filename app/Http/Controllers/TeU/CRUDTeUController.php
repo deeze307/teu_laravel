@@ -39,7 +39,7 @@ class CRUDTeUController extends Controller
     public function getStaff()
     {
         return Staff::join('staff_rol','staff.id_rol','=','staff_rol.id')
-                    ->select('staff.nombre','staff.apellido','staff.telefono','staff.email','staff_rol.descripcion','staff.descripcion')
+                    ->select('staff.nombre','staff.apellido','staff.telefono','staff.email','staff_rol.descripcion','staff.descripcion','staff.avatar')
                     ->get();
     }
 
