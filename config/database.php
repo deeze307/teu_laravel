@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'finanzas'),
+    'default' => env('DB_CONNECTION', 'teu'),
 
     /*
     |--------------------------------------------------------------------------
