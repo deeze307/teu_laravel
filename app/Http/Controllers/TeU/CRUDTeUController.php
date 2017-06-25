@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use IAServer\Http\Requests;
 use IAServer\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class CRUDTeUController extends Controller
 {
