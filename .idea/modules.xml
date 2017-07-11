@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/teu.iml" filepath="$PROJECT_DIR$/.idea/teu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/teu_laravel.iml" filepath="$PROJECT_DIR$/.idea/teu_laravel.iml" />
     </modules>
   </component>
 </project>
