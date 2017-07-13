@@ -14,3 +14,7 @@ Route::get('/enabledjobs',[
 // Staff
 Route::get('/staff','TeU\TeUController@staff');
 
+// Empleos
+
+Route::get('/empleoscategorias','TeU\TeUController@empleosCategorias');
+

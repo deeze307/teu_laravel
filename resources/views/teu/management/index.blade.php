@@ -21,7 +21,36 @@
                             <label>Descripción</label>
                             <textarea class="form-control" rows="3" placeholder="Descripción de la Oferta Laboral..."></textarea>
                         </div>
+                        <div class="form-group has-warning">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group has-warning">
+                            <div class="input-group has-warning">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="number" class="form-control" placeholder="Teléfono">
+                            </div>
+                        </div>
+
                     </form>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" checked>
+                                Visible Web
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" checked>
+                                Visible App
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="box-footer">
                     <div class="pull-right">

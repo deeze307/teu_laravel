@@ -66,7 +66,7 @@ return [
 
         'teu' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      => '107.170.12.42',
             'database'  => 'teu',
             'username'  => 'app',
             'password'  => 'Bruno.2015',

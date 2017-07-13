@@ -14,7 +14,8 @@ class TeUController extends CRUDTeUController
     //
     public function manage()
     {
-        return view('teu.management.index');
+        $empleosCategorias = self::empleosCategorias();
+        return view('teu.management.index',['empleosCategorias'=>$empleosCategorias]);
     }
 
     public function ping()
@@ -35,5 +36,10 @@ class TeUController extends CRUDTeUController
     public function staff()
     {
         return $this->getStaff();
+    }
+
+    public function empleosCategorias()
+    {
+        return $this->getEmpleosCategorias();
     }
 }

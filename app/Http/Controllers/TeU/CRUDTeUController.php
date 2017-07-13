@@ -4,6 +4,7 @@ namespace IAServer\Http\Controllers\TeU;
 
 use IAServer\Http\Controllers\TeU\Model\Consejos;
 use IAServer\Http\Controllers\TeU\Model\Empleos;
+use IAServer\Http\Controllers\TeU\Model\EmpleosCategorias;
 use IAServer\Http\Controllers\TeU\Model\Ping;
 use IAServer\Http\Controllers\TeU\Model\Staff;
 use Illuminate\Http\Request;
@@ -47,6 +48,11 @@ class CRUDTeUController extends Controller
 //        return DB::table('staff')->leftjoin('staff_rol','staff.id_rol','=','staff_rol.id')
 //            ->select('staff.nombre','staff.apellido','staff.telefono','staff.email','staff_rol.descripcion','staff.descripcion','staff.avatar')
 //            ->get();
+    }
+
+    public function getEmpleosCategorias()
+    {
+        return EmpleosCategorias::select('id','categoria_nombre')->get();
     }
 
     public function index()
