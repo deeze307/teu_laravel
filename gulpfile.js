@@ -1,3 +1,22 @@
+/*
+ Para instalar Gulp y Elixir
+
+ #1 Verificar si estan instalados Node y Npm
+ node -v
+ npm -v
+
+ #2 Instalar Gulp
+ npm install --global gulp-cli
+
+ #3 Instalar Elixir
+ npm install --no-bin-links
+
+ #4 Editar este archivo y ejecutar
+ gulp watch --production
+
+ #5 Ser feliz!
+ */
+
 var elixir = require('laravel-elixir');
 
 /*
@@ -12,9 +31,13 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.scriptsIn("public/assets/angularjs/common");
+
+    //  MANAGEMENT
+    mix.scriptsIn(
+        "resources/views/teu/management/assets/js",
+        "public/vendor/teu/management.js"
+    );
 });
 
-elixir(function(mix) {
-    mix.scriptsIn("public/assets/angularjs/common");
-});
+

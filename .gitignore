@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#Modulos de Node que tardan mucho en subir
+node_modules
+
+.idea

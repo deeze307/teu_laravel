@@ -52,7 +52,9 @@ class CRUDTeUController extends Controller
 
     public function getEmpleosCategorias()
     {
-        return EmpleosCategorias::select('id','categoria_nombre')->get();
+        return EmpleosCategorias::select('id','categoria_nombre')
+                                ->orderBy('categoria_nombre','asc')
+                                ->get();
     }
 
     public function index()
@@ -65,9 +67,11 @@ class CRUDTeUController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createEmpleosCategorias($catNombre)
     {
-        //
+        $empCat = new EmpleosCategorias();
+        $empCat->categoria_nombre = $catNombre;
+        $empCat->save();
     }
 
     /**

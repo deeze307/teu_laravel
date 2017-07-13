@@ -51,10 +51,15 @@
                             </label>
                         </div>
                     </div>
+                    <div class="col col-lg-4">
+                        <select id="selEmpleoCategorias" class="form-control select2 has-warning">
+
+                        </select>
+                    </div>
                 </div>
                 <div class="box-footer">
                     <div class="pull-right">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat btn-success">Agregar</button>
+                    <button type="submit" name="add" id="add-btn" class="btn btn-flat btn-success">Agregar</button>
                 </div>
             </div>
         </div>
