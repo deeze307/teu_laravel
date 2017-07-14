@@ -1,9 +1,8 @@
 <?php
 
-namespace IAServer\Http\Controllers\TeU;
+namespace IAServer\Http\Controllers\TeU\Management;
 
-use IAServer\Http\Controllers\TeU\Model\Consejos;
-use IAServer\Http\Controllers\TeU\Model\Ping;
+use IAServer\Http\Controllers\TeU\CRUDTeUController;
 use Illuminate\Http\Request;
 
 use IAServer\Http\Requests;

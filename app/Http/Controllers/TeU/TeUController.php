@@ -28,10 +28,7 @@ class TeUController extends CRUDTeUController
         return $this->getTips();
     }
 
-    public function enabledJobs()
-    {
-        return $this->getEnabledJobs();
-    }
+
 
     public function staff()
     {

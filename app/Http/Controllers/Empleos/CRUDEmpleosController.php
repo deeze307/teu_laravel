@@ -1,19 +1,16 @@
 <?php
 
-namespace IAServer\Http\Controllers\TeU;
+namespace IAServer\Http\Controllers\Empleos;
 
-use IAServer\Http\Controllers\TeU\Model\Consejos;
-use IAServer\Http\Controllers\TeU\Model\Empleos;
-use IAServer\Http\Controllers\TeU\Model\EmpleosCategorias;
-use IAServer\Http\Controllers\TeU\Model\Ping;
-use IAServer\Http\Controllers\TeU\Model\Staff;
+use IAServer\Http\Controllers\Empleos\Model\Empleos;
+use IAServer\Http\Controllers\Empleos\Model\EmpleosCategorias;
 use Illuminate\Http\Request;
 
 use IAServer\Http\Requests;
 use IAServer\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
-class CRUDTeUController extends Controller
+class CRUDEmpleosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,36 +18,13 @@ class CRUDTeUController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function getPing()
-    {
-        return Ping::all();
-    }
-
-    public function getTips()
-    {
-        return Consejos::select('consejo_titulo','consejo_desc')
-                        ->where('visible','t')->get();
-    }
-
     public function getEnabledJobs()
     {
         return Empleos::select('titulo','descripcion','movil','email','id_categoria','created_at')
                         ->where('visible_movil','t')->orderBy('created_at','desc')->get();
     }
 
-    public function getStaff()
-    {
-        $query="select s.apellido,s.nombre,s.telefono,s.email,sr.descripcion as 'desc_rol',s.descripcion,s.avatar
-                from staff s
-                left join staff_rol sr on s.id_rol = sr.id;";
-        return DB::connection('teu')->select($query);
-
-//        return DB::table('staff')->leftjoin('staff_rol','staff.id_rol','=','staff_rol.id')
-//            ->select('staff.nombre','staff.apellido','staff.telefono','staff.email','staff_rol.descripcion','staff.descripcion','staff.avatar')
-//            ->get();
-    }
-
-    public function getEmpleosCategorias()
+    public function getJobsCategories()
     {
         return EmpleosCategorias::select('id','categoria_nombre')
                                 ->orderBy('categoria_nombre','asc')
@@ -67,7 +41,12 @@ class CRUDTeUController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function createJobCategory($catNombre)
+    {
+        $empCat = new EmpleosCategorias();
+        $empCat->categoria_nombre = $catNombre;
+        $empCat->save();
+    }
 
     /**
      * Store a newly created resource in storage.

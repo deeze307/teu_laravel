@@ -1,8 +1,8 @@
-@extends('adminlte/theme')
+@extends('adminlte.theme')
 @section('mini',true)
 @section('title','TeU - Empleos Categorias')
 @section('body')
-    <div class="container" ng-controller="empleoCategoriaController">
+    <div class="container" ng-controller="empleosController">
             <div class="box box-warning col-lg-2">
                 <div class="box-header with-border">
                     <h3 class="box-title">Agregar Categoría de Empleos</h3>
@@ -25,4 +25,6 @@
         </div>
 
     </div>
+    @include('iaserver.common.footer')
+    {!! IAScript('vendor/teu/management/empleos.js') !!}
 @endsection

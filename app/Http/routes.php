@@ -3,4 +3,5 @@
 require('Controllers/IAServer/routes.php');
 require('Controllers/Email/routes.php');
 require('Controllers/TeU/routes.php');
+require('Controllers/Empleos/routes.php');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace IAServer\Http\Controllers\TeU\Model;
+namespace IAServer\Http\Controllers\Empleos\Model;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -38,6 +38,12 @@ elixir(function(mix) {
         "resources/views/teu/management/assets/js",
         "public/vendor/teu/management.js"
     );
+
+    //  EMPLEOS
+    mix.scriptsIn(
+        "resources/views/teu/management/empleos/assets/js",
+        "public/vendor/teu/management/empleos.js"
+    );
 });
 
 
