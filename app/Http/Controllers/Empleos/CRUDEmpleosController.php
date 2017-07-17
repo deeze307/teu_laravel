@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use IAServer\Http\Requests;
 use IAServer\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Mockery\CountValidator\Exception;
 
 class CRUDEmpleosController extends Controller
 {
@@ -43,9 +44,45 @@ class CRUDEmpleosController extends Controller
      */
     public function createJobCategory($catNombre)
     {
-        $empCat = new EmpleosCategorias();
-        $empCat->categoria_nombre = $catNombre;
-        $empCat->save();
+        try
+        {
+            $empCat = new EmpleosCategorias();
+            $empCat->categoria_nombre = $catNombre;
+            $empCat->save();
+            return "ok";
+        }
+        catch(Exception $ex){
+            return "error";
+        }
+    }
+
+    public function updateJobCategory($id,$nuevoNombre)
+    {
+        try
+        {
+            $empCat = EmpleosCategorias::find($id);
+            $empCat->categoria_nombre = $nuevoNombre;
+            $empCat->save();
+            return "ok";
+        }
+        catch(Exception $ex)
+        {
+            return "error";
+        }
+    }
+
+    public function deleteJobCategory($id)
+    {
+        try
+        {
+            $empCat = EmpleosCategorias::find($id);
+            $empCat->delete();
+            return "ok";
+        }
+        catch(Exception $ex)
+        {
+            return "error";
+        }
     }
 
     /**

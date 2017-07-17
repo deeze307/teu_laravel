@@ -3,8 +3,8 @@
 namespace IAServer\Http\Controllers\TeU;
 
 use IAServer\Http\Controllers\TeU\Model\Consejos;
-use IAServer\Http\Controllers\TeU\Model\Empleos;
-use IAServer\Http\Controllers\TeU\Model\EmpleosCategorias;
+use IAServer\Http\Controllers\Empleos\Model\Empleos;
+use IAServer\Http\Controllers\Empleos\Model\EmpleosCategorias;
 use IAServer\Http\Controllers\TeU\Model\Ping;
 use IAServer\Http\Controllers\TeU\Model\Staff;
 use Illuminate\Http\Request;

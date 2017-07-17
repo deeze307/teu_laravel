@@ -14,7 +14,7 @@ class ManageController extends CRUDTeUController
     public function index()
     {
         $empleosCategorias = self::empleosCategorias();
-        return view('teu.management.index',['empleosCategorias'=>$empleosCategorias]);
+        return view('teu.management.index',["empleosCategorias"=>$empleosCategorias]);
     }
 
     public function empleosCategorias()
