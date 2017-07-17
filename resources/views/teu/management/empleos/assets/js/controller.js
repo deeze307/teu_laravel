@@ -2,68 +2,8 @@ app.controller("empleosController",["$scope","$rootScope","$http","FactoryEmpleo
 
     getCategories();
 
-    // Para agregar categorias, solo se especifica el nombre de la categoría y valida que tenga
-    // más de 5 caracteres
-    $scope.addCategory = function(){
-        if($scope.titleCategory.length>5){
-            FactoryEmpleos.createCategory($scope.titleCategory).then(function(response){
-                if(response.data == "ok"){
-                    toasty.success({
-                        title:'Creación exitosa!',
-                        msg:'Categoría '+$scope.titleCategory+' creada exitosamente'
-                    });
-                    getCategories();//vuelvo a cargar las categorias
-                }else{
-                    toasty.error({
-                        title:'Error',
-                        msg:'Ocurrió un error al intentar agregar la categoría'
-                    });
-                }
-            });
-
-        }else{
-            toasty.error({
-                title:'Error',
-                msg:'El nombre de la Categoría debe tener más de 5 caracteres'
-            });
-        }
-        $scope.titleCategory="";
-    };
-
     $scope.promptEnter = function(category){
         $scope.updateCategory(category);
-    };
-
-    $scope.updateCategory = function(category){
-        var id = category.id;
-        var newName = category.newName;
-        if(newName.length > 5){
-            FactoryEmpleos.updateCategory(id,newName).then(function(response){
-                if(response.data =="ok"){
-                    getCategories();
-                    toasty.success({
-                        title:'Categoría Actualizada!'
-                    });
-                    $scope.closeModal();
-                }
-            });
-        }
-    };
-
-    $scope.deleteCategory = function(category){
-        FactoryEmpleos.deleteCategory(category.id).then(function(response){
-            if(response.data == 'ok'){
-                getCategories();
-                toasty.success({
-                    title:'Categoría Eliminada!'
-                });
-            }else{
-                toasty.error({
-                    title:'Error',
-                    msg:'Ocurrió un error al eliminar la categoría'
-                });
-            }
-        });
     };
 
     function getCategories(){

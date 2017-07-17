@@ -25,6 +25,12 @@ class CRUDEmpleosController extends Controller
                         ->where('visible_movil','t')->orderBy('created_at','desc')->get();
     }
 
+    public function getAllJobs()
+    {
+        return Empleos::select('titulo','descripcion','movil','email','id_categoria','created_at')
+                        ->orderBy('created_at','desc')->get();
+    }
+
     public function getJobsCategories()
     {
         return EmpleosCategorias::select('id','categoria_nombre')

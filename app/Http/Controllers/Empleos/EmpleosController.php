@@ -12,8 +12,13 @@ class EmpleosController extends CRUDEmpleosController
     //
     public function viewCategories()
     {
-        $empleosCategorias = self::jobsCategrories();
-        return view('teu.management.empleos.empleoscategorias',['empleosCategorias'=>$empleosCategorias]);
+//        $empleosCategorias = self::jobsCategrories();
+        return view('teu.management.empleoscategorias.empleoscategorias');
+    }
+
+    public function viewJobs()
+    {
+        return view('teu.management.empleos.ofertaslaborales');
     }
 
     public function enabledJobs()

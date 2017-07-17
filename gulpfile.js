@@ -44,6 +44,12 @@ elixir(function(mix) {
         "resources/views/teu/management/empleos/assets/js",
         "public/vendor/teu/management/empleos.js"
     );
+
+    //  EMPLEOS CATEGORIAS
+    mix.scriptsIn(
+        "resources/views/teu/management/empleoscategorias/assets/js",
+        "public/vendor/teu/management/empleoscategorias.js"
+    );
 });
 
 

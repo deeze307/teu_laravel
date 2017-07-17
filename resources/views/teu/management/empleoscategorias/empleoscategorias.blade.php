@@ -12,7 +12,7 @@
     {!! IAScript('assets/angular-datatables/angular-datatables.min.js') !!}
 @endsection
 @section('body')
-    <div ng-controller="empleosController">
+    <div ng-controller="empleosCategoriasController">
         <div class="container">
             <div class="col-lg-6">
                 <div class="box box-warning">
@@ -68,5 +68,5 @@
     </div>
 
     @include('iaserver.common.footer')
-    {!! IAScript('vendor/teu/management/empleos.js') !!}
+    {!! IAScript('vendor/teu/management/empleoscategorias.js') !!}
 @endsection
