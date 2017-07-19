@@ -1,6 +1,9 @@
 app.controller("empleosController",["$scope","$rootScope","$http","FactoryEmpleos","toasty","IaCore",function($scope,$rootScope,$http,FactoryEmpleos,toasty,IaCore){
-
+    $scope.categories =[];
+    $scope.visibleWeb = true;
+    $scope.visibleApp = true;
     getCategories();
+
 
     $scope.promptEnter = function(category){
         $scope.updateCategory(category);
@@ -11,6 +14,39 @@ app.controller("empleosController",["$scope","$rootScope","$http","FactoryEmpleo
             $scope.categories = response.data;
         });
     }
+
+    $scope.addJob=function(){
+        var job = [];
+        job.titulo = $scope.title;
+        job.descripcion = $scope.descJob;
+        job.email = $scope.email;
+        job.phone = $scope.phone;
+        job.visible_web = $scope.visibleWeb;
+        job.visible_app = $scope.visibleApp;
+        job.id_categoria = $scope.selected;
+        FactoryEmpleos.createJob(job).then(function(response){
+            if(response.data == 'ok'){
+                toasty.success({
+                    title:'Creación exitosa!',
+                    msg:'Empleo creado exitosamente.'
+                });
+                $scope.title="";
+                $scope.descJob = "";
+                $scope.email = "";
+                $scope.phone = "";
+                $scope.selected = "";
+            }else{
+                toasty.error({
+                    title:'Error!',
+                    msg:'Ocurrió un error al crear el empleo.'
+                });
+            }
+        });
+    };
+
+    $scope.appendEnter = function(){
+        $scope.descJob += "<br>";
+    };
 
 
     // Modal
@@ -42,4 +78,40 @@ app.controller("empleosController",["$scope","$rootScope","$http","FactoryEmpleo
     $scope.closeModal = function(){
         elmodal.dialog.close();
     };
+
+    $(document).ready(function(){
+        var self = $(this),
+            label = self.next(),
+            label_text = label.text();
+        label.remove();
+        $('#chkWeb').iCheck({
+            checkboxClass: 'icheckbox_minimal-yellow',
+            radioClass: 'iradio_line',
+            insert: '<div class="icheck-line-icon"></div>' + label_text,
+            increaseArea:'20%'
+        });
+
+        $('#chkWeb').on('ifChanged',function(event){
+            if($scope.visibleWeb == true){
+                $scope.visibleWeb = false;
+            }else{
+                $scope.visibleWeb = true;
+            }
+        });
+        $('#chkApp').iCheck({
+            checkboxClass: 'icheckbox_minimal-yellow',
+            radioClass: 'iradio_line',
+            insert: '<div class="icheck-line-icon"></div>' + label_text,
+            increaseArea:'20%'
+        });
+
+        $('#chkApp').on('ifChanged',function(event){
+            if($scope.visibleApp == true){
+                $scope.visibleApp= false;
+            }else{
+                $scope.visibleApp = true;
+            }
+        });
+    });
+
 }]);

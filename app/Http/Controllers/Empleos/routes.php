@@ -5,9 +5,14 @@ Route::group([
 
     // Empleos
 
-    Route::get('/',[
+    Route::get('/new',[
         'as'=>'teu.jobs',
         'uses'=>'EmpleosController@viewJobs'
+    ]);
+
+    Route::get('/new/create/{job}',[
+        'as'=>'teu.jobs.create',
+        'uses'=>'EmpleosController@create'
     ]);
 
     Route::get('/enabledjobs',[

@@ -10,37 +10,61 @@
   <title>@yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- jQuery 2.2.3 -->
+    <!-- Select2 -->
+    {!! IAStyle('adminlte/plugins/select2/select2.min.css') !!}
+            <!-- jQuery 2.2.3 -->
     {!! IAScript('adminlte/plugins/jQuery/jquery-2.2.3.min.js') !!}
-    <!-- Bootstrap 3.3.6 -->
+            <!-- Bootstrap 3.3.6 -->
     {!! IAStyle('adminlte/bootstrap/css/bootstrap.min.css') !!}
     {!! IAScript('adminlte/bootstrap/js/bootstrap.min.js') !!}
-    <!-- Bootstrap Dialog-->
+            <!-- Bootstrap Dialog-->
     {!! IAStyle('assets/dialog-master/css/bootstrap-dialog.min.css') !!}
     {!! IAScript('assets/dialog-master/js/bootstrap-dialog.min.js') !!}
-    <!-- Font Awesome -->
+            <!-- Font Awesome -->
     {!! IAStyle('assets/font-awesome/css/font-awesome.min.css') !!}
-    <!-- Shortcut -->
+            <!-- Shortcut -->
     {!! IAScript('assets/jquery/shortcut.js') !!}
-    <!-- Cookies -->
+            <!-- Cookies -->
     {!! IAScript('assets/jquery/cookies/cookies.js') !!}
-    <!-- AngularJS-->
+            <!-- AngularJS-->
     {!! IAStyle('assets/angularjs/loading-bar.css') !!}
     {!! IAScript('assets/angularjs/angular.min.js') !!}
     {!! IAScript('assets/angularjs/angular-route.min.js') !!}
     {!! IAScript('assets/angularjs/angular-animate.min.js') !!}
     {!! IAScript('assets/angularjs/loading-bar.js') !!}
-    <!-- Angular Bootstrap -->
+            <!-- Angular Bootstrap -->
     {!! IAScript('assets/angularjs/ui-bootstrap-tpls-0.12.1.min.js') !!}
-    <!-- Angular Toasty-->
+            <!-- Angular Toasty-->
     {!! IAStyle('assets/angularjs/toasty/angular-toasty.min.css') !!}
     {!! IAScript('assets/angularjs/toasty/angular-toasty.min.js') !!}
-    <!-- Other styles -->
+            <!-- Other styles -->
     {!! IAStyle('assets/loader_mini.css') !!}
-    <!-- AdminLTE App -->
+            <!-- AdminLTE App -->
     {!! IAStyle('adminlte/dist/css/AdminLTE.css') !!}
     {!! IAStyle('adminlte/dist/css/skins/skin-yellow-light.min.css') !!}
     {!! IAScript('adminlte/dist/js/app.min.js') !!}
+            <!-- DataTables -->
+    {!! IAStyle('adminlte/plugins/datatables/dataTables.bootstrap.css') !!}
+    {!! IAScript('adminlte/plugins/datatables/jquery.dataTables.min.js') !!}
+    {!! IAScript('adminlte/plugins/datatables/dataTables.bootstrap.min.js') !!}
+            <!-- Moments en español -->
+    {!! IAScript('assets/moment.min.js') !!}
+    {!! IAScript('assets/moment.locale.es.js') !!}
+            <!-- DataRangePicker -->
+    {!! IAScript('assets/jquery/daterangepicker/daterangepicker.js') !!}
+    {!! IAStyle('assets/jquery/daterangepicker/daterangepicker.css') !!}
+            <!-- Angular DataTables -->
+    {!! IAScript('assets/angular-datatables/angular-datatables.min.js') !!}
+    <script>
+        function remoteLink(uri) {
+            document.getElementById("ltebody").innerHTML='<object type="text/html" data="'+uri+'"  width="100%" height="2000"></object>';
+        }
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
 
   @yield('head')
 </head>
@@ -105,5 +129,83 @@
 <!-- ./wrapper -->
 
 <toasty></toasty>
+
+<!-- iCheck para checkboxes -->
+{!! IAStyle('adminlte/plugins/iCheck/all.css') !!}
+{!! IAScript('adminlte/plugins/iCheck/icheck.min.js') !!}
+
+        <!-- Select2 -->
+{!! IAScript('adminlte/plugins/select2/select2.full.min.js') !!}
+
+<script type="text/javascript">
+  // Moment en español
+  moment.locale("es");
+
+  // Funcion para levantar el datatable
+  $(function() {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Initialize datatable Elements
+    $(".datatable").DataTable( {
+      "language": {
+        "scrollX": true,
+        "search": "Buscar",
+        "lengthMenu":     "Ver _MENU_ resultados",
+        "info": "Ver _START_ a _END_ de _TOTAL_ resultados",
+        "zeroRecords": "No hay resultados",
+        "paginate": {
+          "first":      "Primero",
+          "last":       "Ultimo",
+          "next":       "Siguiente",
+          "previous":   "Anterior"
+        }
+      }
+    });
+
+    // Datapicker sin rango de fechas
+    $('input.defaultdatapicker').daterangepicker({
+      locale: {
+        format: 'DD/MM/YYYY'
+      },
+      autoApply: true,
+      singleDatePicker: true
+    });
+
+    // Datapicker con rango de fechas
+    $('input.defaultdatarangepicker').daterangepicker({
+      locale: {
+        format: 'DD/MM/YYYY',
+        customRangeLabel: 'Definir rango'
+      },
+      ranges: {
+        'Hoy': [moment(), moment()],
+        'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Ultimos 7 dias': [moment().subtract(6, 'days'), moment()]
+      },
+      autoApply: true
+    });
+
+    // Datapicker con rango de fechas full
+    $('input.fulldatarangepicker').daterangepicker({
+      locale: {
+        format: 'DD/MM/YYYY',
+        customRangeLabel: 'Definir rango'
+      },
+      ranges: {
+        'Hoy': [moment(), moment()],
+        'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Ultimos 7 dias': [moment().subtract(6, 'days'), moment()],
+        'Ultimos 30 dias': [moment().subtract(29, 'days'), moment()],
+        'Este Mes': [moment().startOf('month'), moment().endOf('month')],
+        'Ultimo Mes': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      },
+      autoApply: true
+    });
+  });
+</script>
+
+@yield('footer')
+
 </body>
 </html>

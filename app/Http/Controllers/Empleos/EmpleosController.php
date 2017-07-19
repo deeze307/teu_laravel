@@ -36,6 +36,11 @@ class EmpleosController extends CRUDEmpleosController
         return $this->createJobCategories($catNombre);
     }
 
+    public function createJob($job)
+    {
+        return $this->createJob($job);
+    }
+
     public function prompt()
     {
         return view('teu.management.empleos.prompt');

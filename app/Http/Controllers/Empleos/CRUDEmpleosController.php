@@ -62,6 +62,27 @@ class CRUDEmpleosController extends Controller
         }
     }
 
+    public function createJob($job)
+    {
+        try
+        {
+            $empleos = new Empleos();
+            $empleos->titulo = $job->titulo;
+            $empleos->descripcion = $job->descripcion;
+            $empleos->movil = $job->movil;
+            $empleos->email = $job->email;
+            $empleos->visible_web = $job->visible_web;
+            $empleos->visible_movil = $job->visible_movil;
+            $empleos->id_categoria = $job->id_categoria;
+            $empleos->save();
+            return "ok";
+        }
+        catch(Exception $ex)
+        {
+            return "error";
+        }
+    }
+
     public function updateJobCategory($id,$nuevoNombre)
     {
         try
