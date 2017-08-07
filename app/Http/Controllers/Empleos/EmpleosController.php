@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use IAServer\Http\Requests;
 use IAServer\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class EmpleosController extends CRUDEmpleosController
 {
@@ -21,6 +22,11 @@ class EmpleosController extends CRUDEmpleosController
         return view('teu.management.empleos.ofertaslaborales');
     }
 
+    public function viewCreateJobs()
+    {
+        return view('teu.management.empleos.create');
+    }
+
     public function enabledJobs()
     {
         return $this->getEnabledJobs();
@@ -31,14 +37,29 @@ class EmpleosController extends CRUDEmpleosController
         return $this->getJobsCategories();
     }
 
-    public function createJobCategory($catNombre)
+    public function crudCreateJobCategory($catNombre)
     {
-        return $this->createJobCategories($catNombre);
+        return $this->crudCreateJobCategory($catNombre);
     }
 
-    public function createJob($job)
+    public function createJob()
     {
-        return $this->createJob($job);
+        $job = new \stdClass();
+        $job->titulo = Input::get('title');
+        $job->descripcion = Input::get('descJob');
+        $job->movil = Input::get('movil');
+        $job->email = Input::get('email');
+        $job->visible_web = Input::get('chkWeb') == 'on' ? 'true' : 'false';
+        $job->visible_movil = Input::get('chkApp') == 'on' ? 'true' : 'false';
+        $job->id_categoria = Input::get('selected');
+
+        if($job->id_categoria == "NULL")
+        {
+            return redirect('jobs/new')->with('errors','Debe Seleccionar una categoría');
+        }
+
+//        return Input::all();
+        return $this->crudCreateJob($job);
     }
 
     public function prompt()

@@ -14,69 +14,54 @@
 @endsection
 @section('body')
     <div ng-controller="empleosController">
+        @if (Session::has('message'))
+            <div class="alert alert-info">{{ Session::get('message') }}</div>
+        @endif
+
+        @if (Session::has('errors'))
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <strong>Error!  </strong>
+                    {{ Session::get('errors') }}
+                </ul>
+            </div>
+        @endif
         <div class="container">
-            <div class="box box-warning col-lg-2">
+            <div class="box box-primary col-lg-6 col-md-6 col-xs-12">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Ofertas Laborales</h3>
+                    <h3 class="box-title">Lista de Ofertas Disponibles</h3>
                 </div>
-                <!-- /.box-header -->
                 <div class="box-body">
-                    <form role="form">
-                        <!-- text input -->
-                        <div class="form-group has-warning">
-                            <label>Titulo</label>
-                            <input type="text" class="form-control" ng-model="title" placeholder="Titulo de Oferta Laboral">
-                        </div>
+                    <table datatable="ng" dt-options="dtOptions" id="tabla1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Título</th>
+                            <th class="text-center">Descripción</th>
+                            <th class="text-center">Movil</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Visible Web</th>
+                            <th class="text-center">Visible Movil</th>
+                            <th class="text-center">Categoría</th>
+                            <th class="text-center">Fecha de Creación</th>
+                            <th class="text-center">Puesto Cubierto</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="j in jobs">
+                            <td class="text-center">@{{j.titulo}}</td>
+                            <td class="text-center ">@{{j.descripcion}}</td>
+                            <td class="text-center">@{{j.movil}}</td>
+                            <td class="text-center">@{{j.email}}</td>
+                            <td class="text-center">@{{j.visible_web}}</td>
+                            <td class="text-center">@{{j.visible_movil}}</td>
+                            <td class="text-center">@{{j.categoria}}</td>
+                            <td class="text-center">@{{j.categoria}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
 
-                        <!-- textarea -->
-                        <div class="form-group has-warning">
-                            <label>Descripción</label>
-                            <textarea ng-enter="appendEnter()" ng-model="descJob" class="form-control" rows="3" placeholder="Descripción de la Oferta Laboral..."></textarea>
-                        </div>
-                        <div class="form-group has-warning">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                <input type="email" class="form-control" placeholder="Email" ng-model="email">
-                            </div>
-                        </div>
-                        <div class="form-group has-warning">
-                            <div class="input-group has-warning">
-                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                <input type="number" class="form-control" placeholder="Teléfono" ng-model="phone">
-                            </div>
-                        </div>
-
-                    </form>
-
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="chkWeb" checked>
-                                Visible Web
-                            </label>
-                        </div>
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="chkApp" checked>
-                                Visible App
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col col-lg-4">
-                        <select id="selEmpleoCategorias" ng-model="selected" class="form-control has-warning">
-                            <option value="NULL" selected> -- Seleccione Categoría --</option>
-                            <option ng-repeat="cat in categories"  value="@{{cat.id}}">@{{cat.categoria_nombre}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="box-footer">
-                    <div class="pull-right">
-                        <button type="submit" ng-click="addJob()" name="add" id="add-btn" class="btn btn-flat btn-success">Agregar</button>
-                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 

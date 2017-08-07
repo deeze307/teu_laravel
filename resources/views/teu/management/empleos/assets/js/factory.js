@@ -4,10 +4,10 @@ app.factory("FactoryEmpleos",["$http",
 
             getCategories:function(){
                 return $http.get('categories/all');
-            },
-            createJob:function(job){
-                return $http.get('new/create/'+job);
             }
+            //createJob:function(job){
+            //    return $http.get('new/create/'+job);
+            //}
         }
     }
 ]);

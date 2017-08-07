@@ -48,7 +48,7 @@ class CRUDEmpleosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function createJobCategory($catNombre)
+    public function crudCreateJobCategory($catNombre)
     {
         try
         {
@@ -62,7 +62,7 @@ class CRUDEmpleosController extends Controller
         }
     }
 
-    public function createJob($job)
+    public function crudCreateJob($job)
     {
         try
         {
@@ -75,11 +75,11 @@ class CRUDEmpleosController extends Controller
             $empleos->visible_movil = $job->visible_movil;
             $empleos->id_categoria = $job->id_categoria;
             $empleos->save();
-            return "ok";
+            return redirect('jobs/new')->with('message','Oferta Laboral Creada Exitosamente');
         }
         catch(Exception $ex)
         {
-            return "error";
+            return redirect('jobs/new')->with('errors','Ocurrió un error al intentar crear el registro, por favor verifique todos los campos');
         }
     }
 

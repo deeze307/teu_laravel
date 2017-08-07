@@ -6,7 +6,7 @@
 var app = angular.module("app", ['ngRoute','chieffancypants.loadingBar','ngAnimate','ui.bootstrap','angular-toasty','cfp.loadingBar']);
 
 app.config(['cfpLoadingBarProvider',function(cfpLoadingBarProvider) {
-    cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.includeSpinner = true;
 }]);
 
 app.config(['toastyConfigProvider', function(toastyConfigProvider) {

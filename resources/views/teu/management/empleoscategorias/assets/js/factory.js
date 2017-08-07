@@ -1,4 +1,4 @@
-app.factory("FactoryEmpleos",["$http",
+app.factory("FactoryEmpleosCategorias",["$http",
     function($http){
         return{
             createCategory:function(category){

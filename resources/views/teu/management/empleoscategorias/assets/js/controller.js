@@ -1,4 +1,4 @@
-app.controller("empleosCategoriasController",["$scope","$rootScope","$http","FactoryEmpleos","toasty","IaCore",function($scope,$rootScope,$http,FactoryEmpleos,toasty,IaCore){
+app.controller("empleosCategoriasController",["$scope","$rootScope","$http","FactoryEmpleosCategorias","toasty","IaCore",function($scope,$rootScope,$http,FactoryEmpleosCategorias,toasty,IaCore){
 
     getCategories();
 
@@ -6,7 +6,7 @@ app.controller("empleosCategoriasController",["$scope","$rootScope","$http","Fac
     // más de 5 caracteres
     $scope.addCategory = function(){
         if($scope.titleCategory.length>5){
-            FactoryEmpleos.createCategory($scope.titleCategory).then(function(response){
+            FactoryEmpleosCategorias.createCategory($scope.titleCategory).then(function(response){
                 if(response.data == "ok"){
                     toasty.success({
                         title:'Creación exitosa!',
@@ -38,7 +38,7 @@ app.controller("empleosCategoriasController",["$scope","$rootScope","$http","Fac
         var id = category.id;
         var newName = category.newName;
         if(newName.length > 5){
-            FactoryEmpleos.updateCategory(id,newName).then(function(response){
+            FactoryEmpleosCategorias.updateCategory(id,newName).then(function(response){
                 if(response.data =="ok"){
                     getCategories();
                     toasty.success({
@@ -51,7 +51,7 @@ app.controller("empleosCategoriasController",["$scope","$rootScope","$http","Fac
     };
 
     $scope.deleteCategory = function(category){
-        FactoryEmpleos.deleteCategory(category.id).then(function(response){
+        FactoryEmpleosCategorias.deleteCategory(category.id).then(function(response){
             if(response.data == 'ok'){
                 getCategories();
                 toasty.success({
@@ -67,7 +67,7 @@ app.controller("empleosCategoriasController",["$scope","$rootScope","$http","Fac
     };
 
     function getCategories(){
-        FactoryEmpleos.getCategories().then(function(response){
+        FactoryEmpleosCategorias.getCategories().then(function(response){
             $scope.categories = response.data;
         });
     }

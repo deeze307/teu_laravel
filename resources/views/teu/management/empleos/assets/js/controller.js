@@ -24,24 +24,24 @@ app.controller("empleosController",["$scope","$rootScope","$http","FactoryEmpleo
         job.visible_web = $scope.visibleWeb;
         job.visible_app = $scope.visibleApp;
         job.id_categoria = $scope.selected;
-        FactoryEmpleos.createJob(job).then(function(response){
-            if(response.data == 'ok'){
-                toasty.success({
-                    title:'Creación exitosa!',
-                    msg:'Empleo creado exitosamente.'
-                });
-                $scope.title="";
-                $scope.descJob = "";
-                $scope.email = "";
-                $scope.phone = "";
-                $scope.selected = "";
-            }else{
-                toasty.error({
-                    title:'Error!',
-                    msg:'Ocurrió un error al crear el empleo.'
-                });
-            }
-        });
+        //FactoryEmpleos.createJob(job).then(function(response){
+        //    if(response.data == 'ok'){
+        //        toasty.success({
+        //            title:'Creación exitosa!',
+        //            msg:'Empleo creado exitosamente.'
+        //        });
+        //        $scope.title="";
+        //        $scope.descJob = "";
+        //        $scope.email = "";
+        //        $scope.phone = "";
+        //        $scope.selected = "";
+        //    }else{
+        //        toasty.error({
+        //            title:'Error!',
+        //            msg:'Ocurrió un error al crear el empleo.'
+        //        });
+        //    }
+        //});
     };
 
     $scope.appendEnter = function(){
